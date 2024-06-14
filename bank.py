@@ -12,7 +12,8 @@ class Bank_Manager():
         self.accounts = []
         
     def add_acount(self, name, acc_number, balance):
-            
+        for existing_acc in self.accounts:
+            if existing_acc.get_name() == name    
         
         
         
