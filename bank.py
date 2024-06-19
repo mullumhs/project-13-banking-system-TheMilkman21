@@ -20,40 +20,40 @@ class Bank_Manager():
         self.accounts.append(account)
         return True
                    
-    def deposit(self, acc_number, balance, deposit_amount):    
-        for acc_number in self.accounts:
-            if acc_number.get_acc_number() == acc_number:
-                balance + deposit_amount
+    def deposit(self, acc_number, deposit_amount):    
+        for account in self.accounts:
+            if account.get_acc_number() == acc_number:
+                account.deposit(deposit_amount)
                 return True
             else:
-                print("account does not exist")
-                return False
+                raise ValueError("account does not exist")
                 
-    def withdraw(self, acc_number, balance, withdraw_amount):
-        for acc_number in self.accounts:
-            if acc_number.get_acc_number() == acc_number:
-                balance - withdraw_amount
+                
+    def withdraw(self, acc_number,  withdraw_amount):
+        for account in self.accounts:
+            if account.get_acc_number() == acc_number:
+                account.withdraw(withdraw_amount)
                 return True        
             else:
-                print("account does not exist")
-                return False
+                raise ValueError("account does not exist")
+                
         
-    def transfer(self, acc_number, transfer_amount, acc1, acc2):
+    def transfer(self, source_acc_number, transfer_amount, dest_acc_number):
         for acc_number in self.accounts:
-            if  acc_number.get_acc_number() == acc_number:
-                    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+            if source_acc_number.get_acc_number() == acc_number:
+                source_acc_number.withdraw(transfer_amount)
+            else:
+                raise ValueError("account not real")
+             
+        for acc_number in self.accounts:
+            if dest_acc_number.get_acc_number() == acc_number:
+                dest_acc_number.deposit(transfer_amount)
+            else:
+                raise ValueError("account not real")
+
+
+
+
+
+
+
